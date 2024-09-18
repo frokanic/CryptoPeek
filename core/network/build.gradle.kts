@@ -33,6 +33,7 @@ dependencies {
     implementation(libs.retrofit.kotlin.serialization)
     implementation(libs.retrofit.logger)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.gson)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 }
