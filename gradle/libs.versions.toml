@@ -14,6 +14,7 @@ retrofitKotlinSerialization = "0.8.0"
 retrofitSerializationJson = "1.6.3"
 retrofitLogger = "4.12.0"
 gson = "2.10.1"
+retrofitGson = "2.9.0"
 
 
 [libraries]
@@ -40,6 +41,7 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinSerialization" }
 retrofit-logger = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "retrofitLogger" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitGson" }
 
 # Serialization
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "retrofitSerializationJson" }
