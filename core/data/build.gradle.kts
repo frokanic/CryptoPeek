@@ -28,9 +28,11 @@ android {
 }
 
 dependencies {
+    implementation(libs.retrofit)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
     implementation(project(":core:network"))
-//    implementation(project(":core:model"))
+    implementation(project(":core:model"))
 }
