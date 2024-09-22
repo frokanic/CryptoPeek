@@ -12,7 +12,7 @@ interface CryptoApi {
     @GET("coins/markets")
     fun getAllCrypto(
         @Query("vs_currency") vsCurrency: String,
-    ): Response<CurrencyResponseModel>
+    ): Response<List<CurrencyResponseModel>>
 
     @GET("coins/{id}")
     fun getCoinInfo(
