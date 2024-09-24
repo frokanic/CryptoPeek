@@ -1,6 +1,7 @@
 package com.frokanic.cryptopeek.repository
 
 import com.frokanic.cryptopeek.api.CryptoApi
+import com.frokanic.cryptopeek.mapper.errorCodeToMessageMapper
 import com.frokanic.cryptopeek.mapper.toCurrencyOverview
 import com.frokanic.model.model.AllCurrencies
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -48,13 +49,13 @@ class AllCurrenciesRepositoryImpl(
             )
         } catch (e: Exception) {
             evaluateFailure(
-                code = CustomCodes.GENERIC_ERROR.code
+                code = null
             )
         }
     }
 
     private fun evaluateFailure(
-        code: Int
+        code: Int?
     ) {
         val currentValue = _allCurrencies.value
 
@@ -62,7 +63,8 @@ class AllCurrenciesRepositoryImpl(
             is Result.Success -> {
                 Result.FailureWithFallback(
                     data = currentValue.data,
-                    errorCode = code
+                    errorCode = code,
+                    errorDescription = errorCodeToMessageMapper(code = code)
                 )
             }
             else -> {
@@ -71,11 +73,5 @@ class AllCurrenciesRepositoryImpl(
                 )
             }
         }
-    }
-
-    private enum class CustomCodes(
-        val code: Int
-    ) {
-        GENERIC_ERROR(code = -1)
     }
 }
