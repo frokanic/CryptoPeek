@@ -7,16 +7,30 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DomainModule {
 
+    // Todo Add this to the shared module, instead of here!
+    @Provides
+    @Singleton
+    fun provideApplicationScope(): CoroutineScope =
+        CoroutineScope(
+            context = SupervisorJob() + Dispatchers.Default
+        )
+
     @Provides
     fun provideAllCurrenciesUseCase(
-        repository: AllCurrenciesRepository
+        repository: AllCurrenciesRepository,
+        scope: CoroutineScope
     ) : AllCurrenciesUseCase =
         AllCurrenciesUseCaseImpl(
-            repository = repository
+            repository = repository,
+            scope = scope
         )
 }
