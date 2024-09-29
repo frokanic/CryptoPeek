@@ -69,7 +69,8 @@ class AllCurrenciesRepositoryImpl(
             }
             else -> {
                 Result.Failure(
-                    errorCode = code
+                    errorCode = code,
+                    errorDescription = errorCodeToMessageMapper(code = code)
                 )
             }
         }
