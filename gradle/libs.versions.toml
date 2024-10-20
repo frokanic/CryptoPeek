@@ -12,6 +12,7 @@ lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.2"
 composeBom = "2024.09.02"
 hilt = "2.51"
+navigationCompose = "2.8.1"
 retrofit = "2.9.0"
 retrofitKotlinSerialization = "0.8.0"
 retrofitSerializationJson = "1.6.3"
@@ -22,6 +23,7 @@ retrofitGson = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

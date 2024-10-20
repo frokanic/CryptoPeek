@@ -59,9 +59,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(libs.androidx.navigation.compose)
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
     implementation(libs.coil)
     implementation(libs.coil.compose)
+
+    implementation(project(":feature:allcrypto"))
 }

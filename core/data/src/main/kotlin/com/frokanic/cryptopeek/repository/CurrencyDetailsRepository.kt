@@ -10,4 +10,9 @@ class CurrencyDetailsRepositoryImpl(
     private val api: CryptoApi
 ) : CurrencyDetailsRepository {
 
+//    fun getCoinInfo(id: String) =
+//        api.getCoinInfo(
+//            id = id
+//        ).toCoinInfo()
+
 }

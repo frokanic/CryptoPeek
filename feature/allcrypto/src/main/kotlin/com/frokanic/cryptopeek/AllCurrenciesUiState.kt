@@ -7,7 +7,7 @@ sealed interface AllCurrenciesUiState {
     data object Loading : AllCurrenciesUiState
 
     data class Success(
-        val currencies: List<CurrencyOverview>?
+        val currencies: List<CurrencyOverview>
     ) : AllCurrenciesUiState
 
     data class Failure(
