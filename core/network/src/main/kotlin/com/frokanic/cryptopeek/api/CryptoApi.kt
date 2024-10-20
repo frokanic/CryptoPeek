@@ -10,12 +10,12 @@ interface CryptoApi {
 
     // Todo: Take notes on @Query, @Path and @Body. Especially on @Body, since the other 2 are pretty straightforward.
     @GET("coins/markets")
-    fun getAllCrypto(
+    suspend fun getAllCrypto(
         @Query("vs_currency") vsCurrency: String,
     ): Response<List<CurrencyResponseModel>>
 
     @GET("coins/{id}")
-    fun getCoinInfo(
+    suspend fun getCoinInfo(
         @Path("id") id: String
     ): Response<CurrencyResponseModel>
 
