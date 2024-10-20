@@ -12,7 +12,7 @@ import retrofit2.HttpException
 
 interface AllCurrenciesRepository {
     val allCurrencies: StateFlow<Result<AllCurrencies>>
-    fun getAllCurrencies()
+    suspend fun getAllCurrencies()
 }
 
 class AllCurrenciesRepositoryImpl(
@@ -22,7 +22,7 @@ class AllCurrenciesRepositoryImpl(
     private val _allCurrencies = MutableStateFlow<Result<AllCurrencies>>(Result.Loading)
     override val allCurrencies: StateFlow<Result<AllCurrencies>> = _allCurrencies.asStateFlow()
 
-    override fun getAllCurrencies() {
+    override suspend fun getAllCurrencies() {
         try {
             val result = api
                 .getAllCrypto(
