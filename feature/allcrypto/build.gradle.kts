@@ -1,9 +1,10 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.ksp)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -48,15 +49,20 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    debugImplementation(libs.androidx.hilt.lifecycle.viewmodel)
+//    debugImplementation(libs.androidx.hilt.lifecycle.viewmodel)
     debugImplementation(libs.androidx.hilt.navigation.compose)
+
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     implementation(libs.coil)
     implementation(libs.coil.compose)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
+
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
+    implementation(project(":shared"))
 }
