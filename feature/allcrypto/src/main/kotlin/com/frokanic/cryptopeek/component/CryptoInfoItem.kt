@@ -2,6 +2,7 @@ package com.frokanic.cryptopeek.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,12 +25,14 @@ import com.frokanic.cryptopeek.allcrypto.R
 @Composable
 fun CryptoInfoItem(
     modifier: Modifier = Modifier,
+    id: String,
     name: String,
     symbol: String,
     imageUrl: String,
     currentPrice: Double,
     priceChangePercentage24H: Double,
     backgroundColor: Color,
+    onClickOnItem: (String) -> Unit,
     previewStatus: PreviewCryptoInfoRowModel = PreviewCryptoInfoRowModel()
 ) {
     val imageModifier = Modifier
@@ -42,7 +45,11 @@ fun CryptoInfoItem(
             .height(64.dp)
             .background(
                 color = backgroundColor
-            ),
+            )
+            .clickable {
+                onClickOnItem(id)
+            }
+        ,
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (previewStatus.isPreview) {
@@ -126,12 +133,14 @@ data class PreviewCryptoInfoRowModel(
 @Composable
 fun CryptoInfoItemPreview() {
     CryptoInfoItem(
+        id = "1",
         name = "Bitcoin",
         symbol = "BTC",
         imageUrl = "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
         currentPrice = 58984.0,
         priceChangePercentage24H = 1.380,
         backgroundColor = Color.Unspecified,
+        onClickOnItem = {  },
         previewStatus = PreviewCryptoInfoRowModel(
             isPreview = true,
             previewImageId = R.drawable.preview_btc

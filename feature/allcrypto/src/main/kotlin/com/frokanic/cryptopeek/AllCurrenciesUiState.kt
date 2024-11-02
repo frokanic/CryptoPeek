@@ -15,7 +15,7 @@ sealed interface AllCurrenciesUiState {
     ) : AllCurrenciesUiState
 
     data class FailureWithFallback(
-        val currencies: List<CurrencyOverview>?,
+        val currencies: List<CurrencyOverview>,
         val errorDescription: String
     ) : AllCurrenciesUiState
 

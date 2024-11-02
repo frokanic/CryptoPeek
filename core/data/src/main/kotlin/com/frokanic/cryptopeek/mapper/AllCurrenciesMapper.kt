@@ -1,7 +1,6 @@
 package com.frokanic.cryptopeek.mapper
 
 import com.frokanic.cryptopeek.model.CurrencyResponseModel
-import com.frokanic.model.model.AllCurrencies
 import com.frokanic.model.model.CurrencyOverview
 
 fun CurrencyResponseModel.toCurrencyOverview(): CurrencyOverview =
@@ -11,5 +10,6 @@ fun CurrencyResponseModel.toCurrencyOverview(): CurrencyOverview =
         symbol = symbol,
         image = image,
         currentPrice = currentPrice,
-        priceChangePercentage24H = priceChange24h
+        priceChangePercentage24H = priceChange24h,
+        marketCap = marketCap
     )
