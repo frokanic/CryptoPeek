@@ -28,7 +28,7 @@ internal fun CryptoPeekNavGraph() {
 
         composable<Routes.CryptoDetails> {
             CryptoDetailsScreen(
-                clickedCryptoId = it.id
+//                clickedCryptoId = it.id
             )
         }
     }
