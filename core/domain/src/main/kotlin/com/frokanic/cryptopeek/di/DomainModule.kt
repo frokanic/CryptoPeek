@@ -1,8 +1,11 @@
 package com.frokanic.cryptopeek.di
 
 import com.frokanic.cryptopeek.repository.AllCurrenciesRepository
+import com.frokanic.cryptopeek.repository.CurrencyDetailsRepository
 import com.frokanic.cryptopeek.usecase.AllCurrenciesUseCase
 import com.frokanic.cryptopeek.usecase.AllCurrenciesUseCaseImpl
+import com.frokanic.cryptopeek.usecase.CurrencyDetailsUseCase
+import com.frokanic.cryptopeek.usecase.CurrencyDetailsUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +35,13 @@ object DomainModule {
         AllCurrenciesUseCaseImpl(
             repository = repository,
             scope = scope
+        )
+
+    @Provides
+    fun provideCurrencyDetailsUseCase(
+        repository: CurrencyDetailsRepository
+    ) : CurrencyDetailsUseCase =
+        CurrencyDetailsUseCaseImpl(
+            repository = repository
         )
 }
