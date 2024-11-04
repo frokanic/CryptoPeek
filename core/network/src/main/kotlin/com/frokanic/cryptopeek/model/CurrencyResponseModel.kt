@@ -30,11 +30,11 @@ data class CurrencyResponseModel(
     @SerializedName("atl") val atl: Double,
     @SerializedName("atl_change_percentage") val atlChangePercentage: Double,
     @SerializedName("atl_date") val atlDate: String,
-    @SerializedName("roi") val roi: ROI?,
+    @SerializedName("roi") val roiResponseModel: ROIResponseModel?,
     @SerializedName("last_updated") val lastUpdated: String
 )
 
-data class ROI(
+data class ROIResponseModel(
     @SerializedName("times") val times: Double?,
     @SerializedName("currency") val currency: String?,
     @SerializedName("percentage") val percentage: Double?
