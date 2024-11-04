@@ -1,5 +1,6 @@
 package com.frokanic.cryptopeek.api
 
+import com.frokanic.cryptopeek.model.CoinDetailResponseModel
 import com.frokanic.cryptopeek.model.CurrencyResponseModel
 import retrofit2.Response
 import retrofit2.http.GET
@@ -17,6 +18,6 @@ interface CryptoApi {
     @GET("coins/{id}")
     suspend fun getCoinInfo(
         @Path("id") id: String
-    ): Response<CurrencyResponseModel>
+    ): Response<CoinDetailResponseModel>
 
 }
