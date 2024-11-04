@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdk = 34
+    compileSdk = 35
     namespace = "com.frokanic.cryptopeek.network"
 
     defaultConfig {

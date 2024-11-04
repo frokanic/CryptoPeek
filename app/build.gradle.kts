@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.frokanic.cryptopeek"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.frokanic.cryptopeek"
